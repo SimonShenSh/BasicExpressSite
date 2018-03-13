@@ -7,7 +7,6 @@ pipeline {
             }
          }
     environment {
-        npm_config_cache=npm-cache
             NANE = 'link-live.cn'
             MONGO__URI = 'aaaaaaaaaaaaaaa'
         }
