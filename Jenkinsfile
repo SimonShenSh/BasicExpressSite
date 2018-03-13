@@ -1,16 +1,17 @@
 #!groovy
 
 pipeline {
-    agent { docker {
-        image 'node:7-alpine'
-        args '-p 3000:3000'
-            }
-         }
+    agent {
     environment {
+            npm_config_cache=npm-cache
             NANE = 'link-live.cn'
             MONGO__URI = 'aaaaaaaaaaaaaaa'
         }
-
+    docker {
+        image 'node:7-alpine'
+        args '-u root:root -p 3000:3000'
+            }
+         }
     stages {
         stage('build') {
             steps {
